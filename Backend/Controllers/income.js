@@ -11,6 +11,7 @@ const addIncome = async(req, res)=>{
 
     console.log(income)
     try {
+        
         //addIncome checks
         if(!title || !amount || !date || !category || !description){
             return res.status(400).json({message: "All fields are mandatory"})
