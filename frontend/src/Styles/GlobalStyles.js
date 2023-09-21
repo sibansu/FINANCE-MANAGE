@@ -12,18 +12,17 @@ export const GlobalStyles = createGlobalStyle`
         --primary-color: #222260;
         --primary-color2: 'color: rgba(34, 34, 96, .6)';
         --primary-color3: 'color: rgba(34, 34, 96, .4)';
-        --color-green: #42ad00;
+        --color-green: #42AD00;
         --color-grey: #aaa;
         --color-accent: #F56692;
-        --color-delete: #FF0000 
+        --color-delete: #FF0000;
     }
 
     body{
-        font-family: 'Roboto', sans-serif;
+        /* font-family: 'Roboto', sans-serif; */
         font-family: 'Roboto Condensed', sans-serif;
-        /* background-color: red; */
         font-size: clamp(1rem, 1.5vw, 1.2rem);
         overflow: hidden;
-        color: rgba(34,34,96,.6);
+        color: rgba(34, 34, 96, .6);
     }
 `;
