@@ -2,8 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import profile from "../Images/profile.png"
 import { menuItems } from '../Utils/menuItems'
-function Navigation() {
+import { Link, useNavigate } from 'react-router-dom';
+function Navigation({active, setActive}) {
+    const navigate = useNavigate()
+    const handleItemClick = (itemNumber,e) => {
+        setActive(itemNumber);
+        <Link to={e}></Link>
+        navigate(e)
+      };
+      function handleOnClick(e, s){
+        setActive(e)
+        
+      }
     return (
+        
         <NavStyled>
             <div className="user-con">
                 <img src={profile} alt="" />
@@ -15,7 +27,10 @@ function Navigation() {
             <ul className="menu-items">
                 {
                     menuItems.map((item) => {
-                        return <li key={item.id}>
+                        return <li key={item.id}
+                            onClick={()=>{handleItemClick(item.id, item.link); }}
+                            className={active===item.id ? 'active':''}
+                        >
                             {item.icon}
                             <span>{item.title}</span>
                         </li>
@@ -24,7 +39,7 @@ function Navigation() {
             </ul>
             <div className="bottom-nav">
                 <li>
-                    <i class="fa-solid fa-right-from-bracket"></i> Signout
+                    <i className="fa-solid fa-right-from-bracket"></i> Signout
                 </li>
             </div>
         </NavStyled>
@@ -84,6 +99,22 @@ const NavStyled = styled.div`
             color: rgba(34, 34, 96, 0.6);
             font-size: 1.4rem;
             transition: all 0.4s ease-in-out;
+        }
+    }
+    .active{
+        color: rgba(34,34,96,1) !important;
+        i{
+            color: rgba(34,34,96,1);
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            left: 0%;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background-color: #222260;
+            border-radius: 0 10px 0 10px;
         }
     }
 `

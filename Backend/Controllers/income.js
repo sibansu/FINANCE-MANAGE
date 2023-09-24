@@ -8,21 +8,20 @@ const addIncome = async(req, res)=>{
     const income = IncomeSchema({
         title, amount, date, category, description
     })
-
     console.log(income)
     try {
         //addIncome checks
         if(!title || !amount || !date || !category || !description){
-            return res.status(400).json({message: "All fields are mandatory"})
+            return res.status(400).json({message: "All fields are mandatory", success:false})
         }
         if(amount<=0 || amount==='number'){
-            return res.status(400).json({message: "All fields are mandatory"})
+            return res.status(400).json({message: "All fields are mandatory", success:false})
         }
         await income.save()
-        res.status(200).json({message:"Income added succesfully"})
+        res.status(200).json({message:"Income added succesfully", success:true})
     } catch (error) {
         console.log(error)
-        res.status(500).json({message:"Server error"})
+        res.status(500).json({message:"Server error", success:false})
     }
 }
 
