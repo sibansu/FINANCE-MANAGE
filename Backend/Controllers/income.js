@@ -17,7 +17,10 @@ const addIncome = async(req, res)=>{
         if(amount<=0 || amount==='number'){
             return res.status(400).json({message: "All fields are mandatory", success:false})
         }
-        await income.save()
+        const check = await income.save()
+        if(check){
+            console.log("income added successful message true")
+        }
         res.status(200).json({message:"Income added succesfully", success:true})
     } catch (error) {
         console.log(error)

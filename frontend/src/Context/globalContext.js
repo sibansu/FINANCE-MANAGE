@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 
 const base = "http://localhost:5000/api/v1/"
@@ -17,9 +17,22 @@ export const GlobalProvider = (({children})=>{
         })
     }
 
+    const getIncomes = async(income)=>{
+        const response = await axios.get(`${base}get-income`, income)
+        setIncomes(response.data)
+        console.log(response.data)
+    }
+    
+    // getIncomes()
+    useEffect(()=>{
+        getIncomes()
+    },[])
+
     return(
         <GlobalContext.Provider value={{
-            addIncome
+            addIncome,
+            getIncomes,
+            incomes
         }}>
             {children}
         </GlobalContext.Provider>

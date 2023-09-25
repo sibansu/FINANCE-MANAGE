@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../Context/globalContext';
+import Button from '../Button/Button';
 
 function Form() {
     const {addIncome} = useGlobalContext()
@@ -59,9 +60,7 @@ function Form() {
                     <option value="other">Other</option>
                 </select>
             </div>
-            <div className="submit-btn">
-                <button>Submit</button>
-            </div>
+            
         </FormStyled>
     )
 }

@@ -4,6 +4,8 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../Context/globalContext';
 import axios from 'axios';
+import Button from '../Button/Button';
+import {plus} from '../../Utils/icons'
 function Form_new() {
     const {addIncome} = useGlobalContext()
     const [inputState, setInputState] = useState({
@@ -72,8 +74,18 @@ function Form_new() {
                     placeholder={'Income description'}
                     onChange={handleInput('description')}cols="60" rows="5"></textarea>
             </div>
+            
             <div className="submit-btn">
-                <button type='submit'>Submit</button>
+                <Button
+                    name={'add income'}
+                    bPad={'.8rem 1.6rem'}
+                    bRad={'30px'}
+                    icon={plus}
+                    bg={'fuchisa'}
+                    color={'white'}
+                >
+
+                </Button>
             </div>
         </FormStyled>
     )
@@ -106,6 +118,15 @@ const FormStyled = styled.form`
     .selects{
         display: flex;
         justify-content: flex-end;
+    }
+    .submit-btn{
+        button{
+            box-shadow: 0px 1px 15px rgb(0, 0, 0, 0.06);
+            background-color: fuchsia;
+            &:hover{
+                background: green !important;
+            }
+        }
     }
 `;
 

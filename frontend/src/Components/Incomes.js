@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import { InnerLayout } from '../Styles/Layout'
 import { useGlobalContext } from '../Context/globalContext'
 import Form_new from './Form/Form_new'
+import Incomeitems from './Incomeitems'
 // import Form from './Form/form'
 // import Form from '../Components/Form/Form'
 
 function Incomes() {
-  const {addIncome}=useGlobalContext()
+  const {addIncome, incomes, getIncomes}=useGlobalContext()
   return (
     <IncomeStyled>
       <InnerLayout>
@@ -17,7 +18,10 @@ function Incomes() {
             <Form_new></Form_new>
           </div>
           <div className="incomes">
-
+            {incomes.map((inc)=>{
+              const {_id, title, amoount, date, category, description} = inc
+              return <Incomeitems key={_id} id={_id}  title={title} description={description} date={date} amount={amoount} category={category}/>
+            })}
           </div>
         </div>
       </InnerLayout>

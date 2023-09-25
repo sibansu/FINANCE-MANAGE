@@ -12,10 +12,9 @@ function Navigation({active, setActive}) {
       };
       function handleOnClick(e, s){
         setActive(e)
-        
       }
     return (
-        
+
         <NavStyled>
             <div className="user-con">
                 <img src={profile} alt="" />
