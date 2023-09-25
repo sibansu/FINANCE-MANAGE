@@ -7,3 +7,10 @@ export const rupee = <i class="fa-solid fa-indian-rupee-sign"></i>
 export const calendar =<i class="fa-regular fa-calendar-days"></i>
 export const comment =<i class="fa-solid fa-comment"></i>
 export const trash=<i class="fa-solid fa-trash"></i>
+export const money=<i class="fa-solid fa-money-bill-wave"></i>
+export const freelance=<i class="fa-sharp fa-solid fa-earth-americas"></i>
+export const investments=<i class="fa-solid fa-money-bill-trend-up"></i>
+export const stocks=<i class="fa-regular fa-money-bill-trend-up"></i>
+export const Cryptocurrency=<i class="fa-brands fa-bitcoin"></i>
+export const interests = <i class="fa-solid fa-money-check-pen"></i>
+export const family = <i class="fa-solid fa-family"></i>

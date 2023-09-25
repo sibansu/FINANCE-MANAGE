@@ -30,7 +30,15 @@ function Incomes() {
 }
 
 const IncomeStyled = styled.div`
-
+  display: flex;
+  overflow: auto;;
+  .income-content{
+    display: flex;
+    gap: 1rem;
+    .incomes{
+      flex: 1;
+    }
+  }
 `
 
 export default Incomes

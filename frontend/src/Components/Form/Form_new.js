@@ -58,12 +58,12 @@ function Form_new() {
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value="" disabled >Select Option</option>
-                    <option value="salary">Salary</option>
-                    <option value="freelancing">Freelancing</option>
-                    <option value="investments">Investiments</option>
-                    <option value="stocks">Stocks</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Freelancing">Freelancing</option>
+                    <option value="Investments">Investiments</option>
+                    <option value="Stocks">Stocks</option>
                     <option value="Cryptocurrency">Cryptocurreny</option>
-                    <option value="interests">Interests</option>
+                    <option value="Interests">Interests</option>
                     <option value="Family">Family</option>
                     <option value="other">Other</option>
                 </select>
@@ -72,7 +72,7 @@ function Form_new() {
                 <textarea value={description}
                     name={'description'}
                     placeholder={'Income description'}
-                    onChange={handleInput('description')}cols="60" rows="5"></textarea>
+                    onChange={handleInput('description')}cols="40" rows="5"></textarea>
             </div>
             
             <div className="submit-btn">
@@ -93,6 +93,7 @@ function Form_new() {
 
 const FormStyled = styled.form`
     display: flex;
+    /* width: 40%; */
     flex-direction: column;
     gap: 2rem;
     input, textarea, select{

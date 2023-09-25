@@ -1,16 +1,53 @@
 import React from 'react'
 import styled from 'styled-components'
-import { calendar, comment, rupee, trash } from '../Utils/icons'
+import { Cryptocurrency, calendar, comment, family, freelance, interests, investments, money, rupee, stocks, trash } from '../Utils/icons'
 import Button from './Button/Button'
 
 function Incomeitems({
     id,title, amount, date, category, description, deleteItem, indicatorColor, type
 }) {
     const dateChanged = date.substr(0,10)
+
+    const categoryIcon = ()=>{
+        switch(category){
+           case 'Salary':
+            return money
+            case 'Freelancing':
+                return freelance 
+            case 'Investments':
+                return investments
+            case 'Stocks':
+                return stocks
+            case 'Cryptocurrency':
+                return Cryptocurrency
+            case 'Interests':
+                return interests
+            case 'Family':
+                return family
+        }
+    }
+    const expenseCatIcon = ()=>{
+        switch(category){
+           case 'Salary':
+            return money
+            case 'Freelancing':
+                return freelance 
+            case 'Investments':
+                return investments
+            case 'Stocks':
+                return stocks
+            case 'Cryptocurrency':
+                return Cryptocurrency
+            case 'Interests':
+                return interests
+            case 'Family':
+                return family
+        }
+    }
   return (
     <IncomeStyled indicator={indicatorColor}>
         <div className="icon">
-
+            {type==='expense' ? expenseCatIcon() : categoryIcon()}
         </div>
         <div className="content">
             <h3>{title}</h3>

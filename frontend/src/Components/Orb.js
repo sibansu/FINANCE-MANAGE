@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { useWindowSize } from '../Utils/useWindowSize';
 
 function Orb() {
-    const {width, height}=useWindowSize()
+    // const {width, height}=useWindowSize()
 
     // console.log(width, height)
 
