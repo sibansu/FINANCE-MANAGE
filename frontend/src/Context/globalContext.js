@@ -15,6 +15,7 @@ export const GlobalProvider = (({children})=>{
         const response = await axios.post(`${base}add-income`, income).catch((err)=>{
             setError(err.response.data.message)
         })
+        getIncomes()
     }
 
     const getIncomes = async(income)=>{
@@ -25,8 +26,18 @@ export const GlobalProvider = (({children})=>{
     
     const deleteIncome = async(id)=>{
         const res = await axios.delete(`${base}delete-income/${id}`)
+        getIncomes()
     }
 
+    const totalIncome = ()=>{
+        var tot=0;
+        incomes.forEach((inc)=>{
+            tot=tot+inc.amount
+        })
+        return tot;
+    }
+
+    console.log('Total income amount is ',totalIncome())
     useEffect(()=>{
         getIncomes()
     },[])
@@ -36,7 +47,8 @@ export const GlobalProvider = (({children})=>{
             addIncome,
             getIncomes,
             incomes,
-            deleteIncome
+            deleteIncome,
+            totalIncome
         }}>
             {children}
         </GlobalContext.Provider>
