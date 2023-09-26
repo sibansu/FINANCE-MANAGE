@@ -7,7 +7,7 @@ import axios from 'axios';
 import Button from '../Button/Button';
 import {plus} from '../../Utils/icons'
 function Form_new() {
-    const {addIncome} = useGlobalContext()
+    const {addIncome, getIncomes, incomes} = useGlobalContext()
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
@@ -21,10 +21,14 @@ function Form_new() {
     const handleInput = name => e => {
         setInputState({ ...inputState, [name]: e.target.value })
     }
-
+    var flag =true
     const handleSubmit = async(e) => {
         e.preventDefault()
         addIncome(inputState)
+        getIncomes()
+        if(incomes.length==0){
+            flag=false
+        }
     }
     return (
         <FormStyled onSubmit={handleSubmit}>
@@ -33,7 +37,7 @@ function Form_new() {
                     type="text"
                     name={'title'}
                     placeholder={'Salary title'}
-                    onChange={handleInput('title')}
+                    onChange={handleInput('title')} 
                 />
             </div>
             <div className="input-control">

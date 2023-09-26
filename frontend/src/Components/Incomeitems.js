@@ -4,7 +4,7 @@ import { Cryptocurrency, calendar, comment, family, freelance, interests, invest
 import Button from './Button/Button'
 
 function Incomeitems({
-    id,title, amount, date, category, description, deleteItem, indicatorColor, type
+    id,title, amount, date, category, description, deleteIncome, indicatorColor, type
 }) {
     const dateChanged = date.substr(0,10)
 
@@ -53,7 +53,7 @@ function Incomeitems({
             <h3>{title}</h3>
             <div className="inner">
                 <div className="text">
-                    <p>{rupee} 100</p>
+                    <p>{rupee} {amount}</p>
                     <p>{calendar} {dateChanged}</p>
                     <p>
                         {comment}
@@ -67,7 +67,7 @@ function Incomeitems({
                         icon={trash}
                         bg={'fuchisa'}
                         color={'rgba(34, 34, 96, .6)'}
-                    
+                        onClick={()=>deleteIncome(id)}
                     ></Button>
                 </div>
             </div>

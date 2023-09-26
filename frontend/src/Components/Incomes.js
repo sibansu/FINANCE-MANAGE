@@ -8,7 +8,7 @@ import Incomeitems from './Incomeitems'
 // import Form from '../Components/Form/Form'
 
 function Incomes() {
-  const {addIncome, incomes, getIncomes}=useGlobalContext()
+  const {addIncome, incomes, getIncomes, deleteIncome}=useGlobalContext()
   return (
     <IncomeStyled>
       <InnerLayout>
@@ -19,8 +19,8 @@ function Incomes() {
           </div>
           <div className="incomes">
             {incomes.map((inc)=>{
-              const {_id, title, amoount, date, category, description} = inc
-              return <Incomeitems key={_id} id={_id}  title={title} description={description} date={date} amount={amoount} category={category}/>
+              const {_id, title, amount, date, category, description} = inc
+              return <Incomeitems key={_id} id={_id}  title={title} description={description} date={date} amount={amount} deleteIncome={deleteIncome}  category={category}/>
             })}
           </div>
         </div>
