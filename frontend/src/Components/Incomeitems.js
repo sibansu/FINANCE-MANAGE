@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Cryptocurrency, calendar, comment, family, freelance, interests, investments, money, rupee, stocks, trash } from '../Utils/icons'
+import { Cryptocurrency, Fees, Food, Groceries, Grooming, Other, calendar, comment, family, freelance, interests, investments, money, rupee, stocks, trash } from '../Utils/icons'
 import Button from './Button/Button'
 
 function Incomeitems({
@@ -28,22 +28,25 @@ function Incomeitems({
     }
     const expenseCatIcon = ()=>{
         switch(category){
-           case 'Salary':
-            return money
-            case 'Freelancing':
-                return freelance 
+           case 'Groceries':
+            return Groceries
+            case 'Grooming':
+                return Grooming 
             case 'Investments':
                 return investments
-            case 'Stocks':
-                return stocks
-            case 'Cryptocurrency':
-                return Cryptocurrency
-            case 'Interests':
+            case 'Food':
+                return Food
+            case 'Fees':
+                return Fees
+            case 'Gym':
                 return interests
             case 'Family':
                 return family
+            case 'other':
+                return Other
         }
     }
+    
   return (
     <IncomeStyled indicator={indicatorColor}>
         <div className="icon">

@@ -14,3 +14,9 @@ export const stocks=<i class="fa-regular fa-money-bill-trend-up"></i>
 export const Cryptocurrency=<i class="fa-brands fa-bitcoin"></i>
 export const interests = <i class="fa-solid fa-money-check-pen"></i>
 export const family = <i class="fa-solid fa-family"></i>
+export const Groceries = <i class="fa-solid fa-cart-shopping"></i>
+export const Grooming = <i class="fa-solid fa-spa"></i>
+export const Food = <i class="fa-solid fa-bowl-food"></i>
+export const Fees = <i class="fa-solid fa-money-bill"></i>
+export const Gym = <i class="fa-solid fa-dumbbell"></i>
+export const Other= <i class="fa-solid fa-globe"></i>

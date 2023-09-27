@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
-import { useGlobalContext } from '../../Context/globalContext';
+import { useGlobalContext } from '../Context/globalContext';
 import axios from 'axios';
-import Button from '../Button/Button';
-import {plus} from '../../Utils/icons'
-function Form_new() {
-    const {addIncome, getIncomes, incomes} = useGlobalContext()
+import Button from './Button/Button';
+import {plus} from '../Utils/icons'
+function ExpenseForm() {
+    const {addExpense} = useGlobalContext()
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
@@ -24,7 +24,7 @@ function Form_new() {
     var flag =true
     const handleSubmit = async(e) => {
         e.preventDefault()
-        addIncome(inputState)
+        addExpense(inputState)
         setInputState({
             title: '',
             amount: '',
@@ -32,14 +32,15 @@ function Form_new() {
             category: '',
             description: '',
         })
+        window.location.reload()
     }
     return (
-        <FormStyled onSubmit={handleSubmit}>
+        <ExpenseFormStyled onSubmit={handleSubmit}>
             <div className="input-control">
                 <input value={title}
                     type="text"
                     name={'title'}
-                    placeholder={'Salary title'}
+                    placeholder={'Expense title'}
                     onChange={handleInput('title')} 
                 />
             </div>
@@ -47,7 +48,7 @@ function Form_new() {
                 <input value={amount}
                     type="text"
                     name={'amount'}
-                    placeholder={'Salary Amount'}
+                    placeholder={'Expense Amount'}
                     onChange={handleInput('amount')}
                 />
             </div>
@@ -65,26 +66,26 @@ function Form_new() {
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value="" disabled >Select Option</option>
-                    <option value="Salary">Salary</option>
-                    <option value="Freelancing">Freelancing</option>
-                    <option value="Investments">Investiments</option>
-                    <option value="Stocks">Stocks</option>
-                    <option value="Cryptocurrency">Cryptocurreny</option>
-                    <option value="Interests">Interests</option>
+                    <option value="Groceries">Groceries</option>
                     <option value="Family">Family</option>
+                    <option value="Grooming">Grooming</option>
+                    <option value="Food">Food</option>
+                    <option value="Fees">Fees</option>
+                    <option value="Gym">Gym</option>
+                    <option value="Investments">Investments</option>
                     <option value="other">Other</option>
                 </select>
             </div>
             <div className="input-control">
                 <textarea value={description}
                     name={'description'}
-                    placeholder={'Income description'}
+                    placeholder={'Expense description'}
                     onChange={handleInput('description')}cols="40" rows="5"></textarea>
             </div>
             
             <div className="submit-btn">
                 <Button
-                    name={'add income'}
+                    name={'Add expense'}
                     bPad={'.8rem 1.6rem'}
                     bRad={'30px'}
                     icon={plus}
@@ -94,11 +95,11 @@ function Form_new() {
 
                 </Button>
             </div>
-        </FormStyled>
+        </ExpenseFormStyled>
     )
 }
 
-const FormStyled = styled.form`
+const ExpenseFormStyled = styled.form`
     display: flex;
     /* width: 40%; */
     flex-direction: column;
@@ -138,4 +139,4 @@ const FormStyled = styled.form`
     }
 `;
 
-export default Form_new
+export default ExpenseForm
