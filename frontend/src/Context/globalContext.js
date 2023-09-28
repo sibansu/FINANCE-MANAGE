@@ -63,7 +63,7 @@ export const GlobalProvider = (({children})=>{
 
     useEffect(()=>{
         getIncomes()
-        // getExpenses()
+        getExpenses()
     },[])
     
     const transactionHistory = ()=>{

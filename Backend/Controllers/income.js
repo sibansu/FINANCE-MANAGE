@@ -2,15 +2,13 @@ const IncomeSchema = require("../Models/incomeModel")
 
 
 const addIncome = async(req, res)=>{
-    // console.log(req.body)
     const {title, amount, date, category, description} = req.body
 
     const income = IncomeSchema({
         title, amount, date, category, description
     })
-    console.log(income)
+    // console.log(income)
     try {
-        //addIncome checks
         if(!title || !amount || !date || !category || !description){
             return res.status(400).json({message: "All fields are mandatory", success:false})
         }

@@ -9,7 +9,7 @@ const addExpense = async(req, res)=>{
         title, amount, date, category, description
     })
 
-    console.log(income)
+    // console.log(income)
     try {
         //addIncome checks
         if(!title || !amount || !date || !category || !description){
